@@ -31,15 +31,16 @@ public class PersonController {
         if (person.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "person not found");
         }
-        return modelMapper.map( person.get(), PersonDto.class);
+        return modelMapper.map(person.get(), PersonDto.class);
     }
 
     @PostMapping("/person")
     public PersonDto createPerson(@RequestBody PersonDto personDto) {
 
         Person person = modelMapper.map(personDto, Person.class);
-        log.info("person: {}", person);
+
         Person createdPerson = personService.createPerson(person);
+        log.info("created person: {}", createdPerson);
 
         return modelMapper.map(createdPerson, PersonDto.class);
     }

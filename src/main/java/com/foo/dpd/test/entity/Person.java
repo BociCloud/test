@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.validation.constraints.Email;
@@ -33,8 +34,7 @@ public class Person {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-
-    private String id;
+    private String personId;
 
     @Column(length = NAME_MAX_LENGTH)
     private String name;
@@ -59,10 +59,12 @@ public class Person {
     @Email
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "person_id")
     private List<Address> adresses;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "person_id")
     private List<PhoneNumber> phoneNumbers;
 
 }

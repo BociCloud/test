@@ -1,8 +1,11 @@
 package com.foo.dpd.test.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,14 +14,17 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "person")
 public class PhoneNumber {
     
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private long phoneNumberId;
+
     private String phoneNumber;
     
-    @ManyToOne
-    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id", insertable=false, updatable=false)
     private Person person;
     
 }
