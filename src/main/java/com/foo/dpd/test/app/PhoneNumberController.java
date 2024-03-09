@@ -70,10 +70,6 @@ public class PhoneNumberController {
         log.info("updated phoneNumber: {}", updatedPhoneNumber);
     }
 
-    private PhoneNumber mapDtoToEntity(PhoneNumberDto phoneNumberto) {
-        return modelMapper.map(phoneNumberto, PhoneNumber.class);
-    }
-
     private PhoneNumberDto mapEntityToDto(PhoneNumber phoneNumber) {
         return modelMapper.map(phoneNumber, PhoneNumberDto.class);
     }

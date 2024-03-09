@@ -21,7 +21,6 @@ public class GlobalExceptionHandler {
                 .map(violation -> String.format("%s value '%s' %s", StreamSupport.stream(violation.getPropertyPath().spliterator(), false).reduce((first, second) -> second).orElse(null),
                 violation.getInvalidValue(), violation.getMessage())).collect(Collectors.toList());
 
-        //                .stream().map(FieldError::getDefaultMessage).collect(Collectors.toList());
         return new ResponseEntity<>(getErrorsMap(errors), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 

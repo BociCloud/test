@@ -28,7 +28,7 @@ public class PersonService {
     public Person updatePersonWithAnonymizedContent(@Valid Person person) {
 
         person.setBirthPlace(convert(person.getBirthPlace()));
-        person.setEmail(convertEmail(person.getEmail()));
+        person.setEmail(convertEmail());
         person.setMothersName(convert(person.getMothersName()));
         person.setName(convert(person.getName()));
         person.setTajNumber(convert(person.getTajNumber()));
@@ -54,7 +54,7 @@ public class PersonService {
         return StringUtils.repeat("*", str.length());
     }
 
-    private String convertEmail(String str) {
+    private String convertEmail() {
         return "foo@bar.baz";
     }
 

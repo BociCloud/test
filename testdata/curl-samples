@@ -1,0 +1,9 @@
+curl -v localhost:8080/person/05fc9b39-d970-4afa-b7e5-952b4865aeb8 |python3 -m json.tool
+curl -v -X DELETE localhost:8080/person/b50db834-09e5-44df-a280-5f042d1a9d1c -H 'Content-Type: application/json' 
+curl -v -X POST localhost:8080/person -d @sample-person.json
+curl -v -X POST localhost:8080/person -H 'Content-Type: application/json' -d @update-person.json
+curl -v -X POST localhost:8080/phonenumber/b50db834-09e5-44df-a280-5f042d1a9d1c -H 'Content-Type: application/json' -d '{"phoneNumberId":145,"phoneNumber":"23612swsw88"}'
+curl -v -X PUT localhost:8080/person -H 'Content-Type: application/json' -d @update-person-delete-phone.json
+curl -v -X PUT localhost:8080/person -H 'Content-Type: application/json' -d @update-person.json
+curl -v -X PUT localhost:8080/phonenumber/b50db834-09e5-44df-a280-5f042d1a9d1c -H 'Content-Type: application/json' -d '{"phoneNumberId":145,"phoneNumber":"77775"}'
+curl -v -X PUT localhost:8080/address/b50db834-09e5-44df-a280-5f042d1a9d1c -H 'Content-Type: application/json' -d '{"id":144,"street":"aaaa bbbbbb cccc"}'

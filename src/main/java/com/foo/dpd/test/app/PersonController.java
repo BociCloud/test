@@ -20,6 +20,8 @@ import org.springframework.web.server.ResponseStatusException;
 @Slf4j
 public class PersonController {
 
+    private static final String PERSON_NOT_FOUND = "person not found";
+
     @Autowired
     private PersonService personService;
 
@@ -34,7 +36,7 @@ public class PersonController {
 
         Optional<Person> person = personService.getPerson(id);
         if (person.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "person not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, PERSON_NOT_FOUND);
         }
         return mapEntityToDto(person.get());
     }
@@ -56,7 +58,7 @@ public class PersonController {
 
         Optional<Person> personOpt = personService.getPerson(personDto.getId());
         if (personOpt.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "person not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, PERSON_NOT_FOUND);
         }
         Person person = personOpt.get();
         modelMapperWithoutChild.map(personDto, person);
@@ -72,7 +74,7 @@ public class PersonController {
 
         Optional<Person> personOpt = personService.getPerson(id);
         if (personOpt.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "person not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, PERSON_NOT_FOUND);
         }
         Person person = personOpt.get();
 

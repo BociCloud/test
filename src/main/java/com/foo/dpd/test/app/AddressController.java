@@ -78,10 +78,6 @@ public class AddressController {
         log.info("updated address: {}", updatedAddress);
     }
 
-    private Address mapDtoToEntity(AddressDto addressto) {
-        return modelMapper.map(addressto, Address.class);
-    }
-
     private AddressDto mapEntityToDto(Address address) {
         return modelMapper.map(address, AddressDto.class);
     }

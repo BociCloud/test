@@ -1,4 +1,4 @@
-# REST test project[Description Here](https://netbeans.apache.org/images/nblogo48x48.png)
+# REST test project
 
 ***
 
@@ -28,4 +28,6 @@ bin/run-container.sh
 ```
 docker run --rm --name dpd-test -e HOSTNAME=$HOSTNAME -p 8080:8080 dpd-test
 ```
+
+## Test
 
