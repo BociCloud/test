@@ -1,0 +1,29 @@
+{
+    "id": "bf7816f2-bdbf-4291-9131-7b21ee4445e1",
+    "name": "Alma",
+    "birthDate": "2100-03-07",
+    "birthPlace": "korte",
+    "mothersName": "Anyu",
+    "tajNumber": "123456789",
+    "taxid": "9876543210",
+    "email": "a@b.c",
+    "adresses": [
+        {
+            "id": null,
+            "city": "Diósgyőr",
+            "street": null,
+            "postalCode": null
+        },
+        {
+            "id": null,
+            "city": "Kecskemét",
+            "street": null,
+            "postalCode": null
+        }
+    ],
+    "phoneNumbers": [
+       {
+            "phoneNumber": "8723612"
+        }
+    ]
+}

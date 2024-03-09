@@ -1,0 +1,32 @@
+{
+    "id": "123",
+    "name": null,
+    "birthDate": "2024-03-07T15:58:52.444+00:00",
+    "birthPlace": null,
+    "mothersName": null,
+    "tajNumber": null,
+    "taxid": null,
+    "email": null,
+    "adresses": [
+        {
+            "id": null,
+            "city": null,
+            "street": null,
+            "postalCode": null
+        },
+        {
+            "id": null,
+            "city": null,
+            "street": null,
+            "postalCode": null
+        }
+    ],
+    "phoneNumbers": [
+        {
+            "phoneNumber": null
+        },
+        {
+            "phoneNumber": null
+        }
+    ]
+}

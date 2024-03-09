@@ -7,7 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -15,6 +18,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString(exclude = "person")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Address {
 
     @Id
@@ -26,7 +32,7 @@ public class Address {
     private String postalCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id", insertable=false, updatable=false)
+    @JoinColumn(name = "person_id", insertable = false, updatable = false)
     private Person person;
 
 }

@@ -1,9 +1,12 @@
 package com.foo.dpd.test.app;
 
+import com.foo.dpd.test.entity.Address;
 import com.foo.dpd.test.entity.Person;
+import com.foo.dpd.test.entity.PhoneNumber;
 import java.util.Optional;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +21,41 @@ public class PersonService {
         return personRepository.findById(id);
     }
 
-    public Person createPerson(@Valid Person person) {
-        return personRepository.saveAndFlush(person);
+    public Person createUpdatePerson(@Valid Person person) {
+        return personRepository.save(person);
     }
+
+    public Person updatePersonWithAnonymizedContent(@Valid Person person) {
+
+        person.setBirthPlace(convert(person.getBirthPlace()));
+        person.setEmail(convertEmail(person.getEmail()));
+        person.setMothersName(convert(person.getMothersName()));
+        person.setName(convert(person.getName()));
+        person.setTajNumber(convert(person.getTajNumber()));
+        person.setTaxid(convert(person.getTaxid()));
+
+        for (Address address : person.getAdresses()) {
+            address.setStreet(convert(address.getStreet()));
+            address.setCity(convert(address.getCity()));
+        }
+
+        for (PhoneNumber phoneNumber : person.getPhoneNumbers()) {
+            phoneNumber.setPhoneNumber(convert(phoneNumber.getPhoneNumber()));
+        }
+        log.info("converted: {}", person);
+
+        return personRepository.save(person);
+    }
+
+    private String convert(String str) {
+        if (null == str) {
+            return null;
+        }
+        return StringUtils.repeat("*", str.length());
+    }
+
+    private String convertEmail(String str) {
+        return "foo@bar.baz";
+    }
+
 }

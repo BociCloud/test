@@ -8,8 +8,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class AddressDto {
-    
-    private String id;
+
+    private long id;
 
     private String city;
     private String street;

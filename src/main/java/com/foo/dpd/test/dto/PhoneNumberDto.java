@@ -8,7 +8,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class PhoneNumberDto {
-    
+
+    private long phoneNumberId;
     private String phoneNumber;
-        
+
 }

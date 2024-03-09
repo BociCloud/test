@@ -59,11 +59,11 @@ public class Person {
     @Email
     private String email;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "person_id")
     private List<Address> adresses;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "person_id")
     private List<PhoneNumber> phoneNumbers;
 
